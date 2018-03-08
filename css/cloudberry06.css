@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:700");
+.Rtable {
+  -ms-flex-wrap: wrap;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0; }
+
+.Rtable-cell {
+  -ms-flex-positive: 1;
+  -webkit-box-flex: 1;
+  /*overflow: hidden;*/
+  box-sizing: border-box;
+  flex-grow: 1;
+  list-style: none;
+  padding: 1px;
+  width: 100%;
+  margin: -3px 2px 3px -4px;
+  border-color: black;
+  border-bottom: 1px solid black; }
+  .Rtable-cell > h1, .Rtable-cell > h2, .Rtable-cell > h3, .Rtable-cell > h4, .Rtable-cell > h5, .Rtable-cell > h6 {
+    margin: 0; }
+
+#comparables {
+  /* Table column sizing
+  ================================== */ }
+  #comparables > .Rtable.Rtable-outer-collapse {
+    border: solid 3px red;
+    padding: 1em; }
+    #comparables > .Rtable.Rtable-outer-collapse > .Rtable-cell {
+      border-right: 1px solid blue;
+      padding: 1em;
+      border-bottom: 0; }
+  #comparables > .Rtable .Rtable .Rtable-cell {
+    border-left: 1px solid black; }
+    #comparables > .Rtable .Rtable .Rtable-cell.Rtable-cell--head {
+      text-align: center;
+      font-weight: bold;
+      border-top: 1px solid black; }
+  #comparables .Rtable--2cols > .Rtable-cell {
+    width: 50%; }
+  #comparables .Rtable--3cols > .Rtable-cell {
+    width: 33.33%; }
+  #comparables .Rtable--4cols > .Rtable-cell {
+    width: 25%; }
+  #comparables .Rtable--5cols > .Rtable-cell {
+    width: 20%; }
+  #comparables .Rtable--6cols > .Rtable-cell {
+    width: 16.6%; }
+
+@media screen and (max-width: 1280px) {
+  #comparables .Rtable > div:nth-child(1) .Rtable {
+    margin-bottom: 2em; }
+    #comparables .Rtable > div:nth-child(1) .Rtable .Rtable-cell.comparable1 {
+      border-right: 1px solid black; }
+  #comparables .Rtable > div:last-child .Rtable .Rtable-cell.comparable2 {
+    border-left: 1px solid black; }
+  #comparables .Rtable .Rtable div[class*="comparable2"] {
+    /* Behave  like a "row" */
+    position: relative; }
+    #comparables .Rtable .Rtable div[class*="comparable2"] .form-row, #comparables .Rtable .Rtable div[class*="comparable2"] .labels-group, #comparables .Rtable .Rtable div[class*="comparable2"] .labels-group-nowidth {
+      padding-left: 10.5em; }
+    #comparables .Rtable .Rtable div[class*="comparable2"]::before {
+      font-family: "PT Sans Narrow", sans-serif;
+      left: 6px;
+      padding-right: 10px;
+      position: absolute;
+      text-transform: uppercase;
+      top: 6px;
+      white-space: nowrap;
+      width: 10em; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 1;"]:before {
+      content: "Property address"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 3;"]:before {
+      content: "City - Prov"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 4;"]:before {
+      content: "postal code"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 5;"]:before {
+      content: "approx. dist. from sub."; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 6;"]:before {
+      content: "date of sale"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 7;"]:before {
+      content: "sale price"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 8;"]:before {
+      content: "days on market"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 9;"]:before {
+      content: "site size"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 10;"]:before {
+      content: "building type"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 11;"]:before {
+      content: "design/ style"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 12;"]:before {
+      content: "age/ condition"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 13;"]:before {
+      content: "gross living area"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 14;"]:before {
+      content: ""; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 15;"]:before {
+      content: "room count"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 16;"]:before {
+      content: "bathroom count"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 17;"]:before {
+      content: "basement"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 18;"]:before {
+      content: "parking"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 19;"]:before {
+      content: "driveway"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 20;"]:before {
+      content: "extra 1"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order: 21;"]:before {
+      content: "extra 2"; }
+  #comparables .Rtable-outer-collapse {
+    display: block; }
+    #comparables .Rtable-outer-collapse > .Rtable-cell {
+      width: 100% !important; }
+    #comparables .Rtable-outer-collapse > .Rtable-cell--foot {
+      margin-bottom: 1em; } }
+@media screen and (max-width: 1136px) {
+  #comparables > div:nth-child(6) > div:first-child .input-binary {
+    width: 10em; } }
+@media screen and (max-width: 1136px) and (max-width: 950px) {
+  #c2-9 .form-row .input-text {
+    min-width: 0; }
+    #c2-9 .form-row .input-text input {
+      width: 80%; } }
+@media screen and (max-width: 768px) {
+  #comparables .Rtable > div:nth-child(1) .Rtable {
+    margin-bottom: 0; }
+  #comparables .Rtable .Rtable div[class*="comparable1"], #comparables .Rtable .Rtable div[class*="comparable3"] {
+    position: relative; }
+    #comparables .Rtable .Rtable div[class*="comparable1"] .form-row, #comparables .Rtable .Rtable div[class*="comparable1"] .labels-group, #comparables .Rtable .Rtable div[class*="comparable1"] .labels-group-nowidth, #comparables .Rtable .Rtable div[class*="comparable3"] .form-row, #comparables .Rtable .Rtable div[class*="comparable3"] .labels-group, #comparables .Rtable .Rtable div[class*="comparable3"] .labels-group-nowidth {
+      padding-left: 10.5em; }
+    #comparables .Rtable .Rtable div[class*="comparable1"]::before, #comparables .Rtable .Rtable div[class*="comparable3"]::before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 3px;
+      left: 6px;
+      width: 10em;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-family: "PT Sans Narrow", sans-serif;
+      text-transform: uppercase; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 1;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 1;"]:before {
+      content: "Property address"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 3;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 3;"]:before {
+      content: "City - Prov"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 4;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 4;"]:before {
+      content: "postal code"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 5;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 5;"]:before {
+      content: "approx. dist. from sub."; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 6;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 6;"]:before {
+      content: "date of sale"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 7;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 7;"]:before {
+      content: "sale price"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 8;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 8;"]:before {
+      content: "days on market"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 9;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 9;"]:before {
+      content: "site size"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 10;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 10;"]:before {
+      content: "building type"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 11;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 11;"]:before {
+      content: "design/ style"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 12;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 12;"]:before {
+      content: "age/ condition"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 13;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 13;"]:before {
+      content: "gross living area"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 14;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 14;"]:before {
+      content: ""; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 15;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 15;"]:before {
+      content: "room count"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 16;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 16;"]:before {
+      content: "bathroom count"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 17;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 17;"]:before {
+      content: "basement"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 18;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 18;"]:before {
+      content: "parking"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 19;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 19;"]:before {
+      content: "driveway"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 20;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 20;"]:before {
+      content: "extra 1"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order: 21;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order: 21;"]:before {
+      content: "extra 2"; }
+  #comparables .Rtable .Rtable .Rtable-cell {
+    border-right: 1px solid black; }
+    #comparables .Rtable .Rtable .Rtable-cell.subject, #comparables .Rtable .Rtable .Rtable-cell.comparable2 {
+      border-left: 1px solid black !important; }
+    #comparables .Rtable .Rtable .Rtable-cell:not(.subject).Rtable-cell--head {
+      margin-top: 1em; }
+  #comparables .Rtable .Rtable > div:nth-child(3).subject {
+    display: none; }
+  #comparables .Rtable--collapse {
+    display: block; }
+    #comparables .Rtable--collapse > .Rtable-cell {
+      width: 100% !important; }
+    #comparables .Rtable--collapse > .Rtable-cell--foot {
+      margin-bottom: 1em; } }
+@media screen and (max-width: 600px) {
+  #comparables > div:nth-child(3) {
+    flex-wrap: wrap; }
+    #comparables > div:nth-child(3) label {
+      white-space: normal; } }
+@media screen and (max-width: 480px) {
+  #comparables .Rtable .Rtable div[class*="comparable"]:before {
+    width: 6em;
+    font-size: 11px;
+    padding-left: 0;
+    white-space: normal; }
+  #comparables .Rtable .Rtable .Rtable-cell.subject > div:first-child {
+    width: 5em; }
+    #comparables .Rtable .Rtable .Rtable-cell.subject > div:first-child label {
+      font-size: 11px;
+      padding-top: 0.1em;
+      white-space: normal; }
+  #comparables .Rtable .Rtable .Rtable-cell:not(.subject) .form-row, #comparables .Rtable .Rtable .Rtable-cell:not(.subject) .labels-group, #comparables .Rtable .Rtable .Rtable-cell:not(.subject) .labels-group-nowidth {
+    padding-left: 5em; } }
+
+/*# sourceMappingURL=cloudberry06.css.map */

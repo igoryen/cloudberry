@@ -1,0 +1,81 @@
+.anthony {
+  border: 1px solid red;
+  margin: 3px; }
+
+.barbara {
+  border: 1px solid blue;
+  margin: 3px; }
+
+.betty {
+  border: 1px solid green;
+  margin: 3px; }
+
+.brian {
+  border: 1px solid orange;
+  margin: 3px; }
+
+.carol {
+  border: 1px solid wheat;
+  margin: 3px; }
+
+.charles {
+  border: 1px dashed red;
+  margin: 3px; }
+
+.daniel {
+  border: 1px dashed blue;
+  margin: 3px; }
+
+.david {
+  border: 1px dashed orange;
+  margin: 3px; }
+
+.deborah {
+  border: 1px dashed purple;
+  margin: 3px; }
+
+.donald {
+  border: 1px dashed purple;
+  margin: 3px; }
+
+.barbara {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; }
+
+.carol {
+  display: flex;
+  flex-direction: row; }
+
+.daniel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+
+.deborah {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.donald {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .donald.leftaligned {
+    justify-content: flex-start; }
+
+#interior {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; }
+
+#walls, #ceiling {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+#bottom_row {
+  display: flex;
+  flex-direction: column; }
+
+/*# sourceMappingURL=cloudberry01.css.map */

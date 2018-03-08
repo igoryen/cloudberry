@@ -1,0 +1,43 @@
+.anthony {
+	border: 1px solid red;
+	margin: 3px;
+}
+
+.barbara {
+	border: 1px solid blue;
+	margin: 3px;
+
+	display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.betty {
+	border: 1px solid green;
+	margin: 3px;
+}
+
+
+.brian {
+	border: 1px solid orange;
+	margin: 3px;
+}
+
+.carol {
+	border: 1px solid wheat;
+	margin: 3px;
+}
+
+
+.charles {
+	border: 1px dashed red;
+	margin: 3px;
+}
+
+//----------------------
+#interior {
+	display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+}

@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:700");
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "PT Sans Narrow", sans-serif;
+  margin: 0;
+  padding: 0; }
+
+.Rtable-cell--head {
+  text-transform: uppercase; }
+
+.Rtable-cell {
+  align-items: center;
+  border: solid 1px black;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  list-style: none;
+  overflow: hidden;
+  padding: 2px;
+  text-transform: uppercase;
+  width: 100%; }
+  .Rtable-cell label {
+    margin-left: 5px;
+    margin-right: 5px; }
+    .Rtable-cell label.mobile {
+      display: none; }
+  .Rtable-cell input[type="text"] {
+    margin-bottom: 2px;
+    padding: 0 2px;
+    width: 100%; }
+  .Rtable-cell.percentage input[type="number"] {
+    width: 4em; }
+
+.Rtable--2cols > .Rtable-cell {
+  width: 50%; }
+
+.Rtable--3cols > .Rtable-cell {
+  width: 33.33%; }
+
+.Rtable--4cols > .Rtable-cell {
+  width: 25%; }
+
+.Rtable--5cols > .Rtable-cell {
+  width: 20%; }
+  .Rtable--5cols > .Rtable-cell.colspan2 {
+    width: 40%; }
+  .Rtable--5cols > .Rtable-cell.colspan4 {
+    width: 80%; }
+
+.Rtable--6cols > .Rtable-cell {
+  width: 16.666666666666666666%; }
+  .Rtable--6cols > .Rtable-cell.colspan5 {
+    width: 83.33333%; }
+
+.Rtable--9cols > .Rtable-cell {
+  width: 11.11111%; }
+  .Rtable--9cols > .Rtable-cell.colspan2 {
+    width: 22.22222%; }
+  .Rtable--9cols > .Rtable-cell.colspan3 {
+    width: 33.33333%; }
+  .Rtable--9cols > .Rtable-cell.colspan4 {
+    width: 44.44444%; }
+  .Rtable--9cols > .Rtable-cell.colspan5 {
+    width: 55.55556%; }
+  .Rtable--9cols > .Rtable-cell.colspan8 {
+    width: 88.88889%; }
+  .Rtable--9cols > .Rtable-cell.one-of-3 {
+    width: 18.51852%; }
+
+#schedule_a_income_floors {
+  justify-content: center; }
+  #schedule_a_income_floors .Rtable {
+    position: relative; }
+  #schedule_a_income_floors .Rtable-cell--head {
+    background-color: white;
+    border-color: black;
+    color: black;
+    font-family: "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+    padding-right: 5px; }
+  #schedule_a_income_floors .Rtable-cell {
+    text-align: center; }
+    #schedule_a_income_floors .Rtable-cell input {
+      font-family: monospace;
+      margin-bottom: 2px;
+      width: 100%; }
+    #schedule_a_income_floors .Rtable-cell .mobile {
+      display: none; }
+    #schedule_a_income_floors .Rtable-cell.mobile {
+      display: none; }
+  #schedule_a_income_floors .desktop {
+    align-items: center;
+    display: block;
+    display: flex;
+    justify-content: center;
+    padding: 3px 5px;
+    text-transform: uppercase; }
+    #schedule_a_income_floors .desktop.double-column {
+      display: block;
+      padding: 0;
+      width: 22.22222%; }
+      #schedule_a_income_floors .desktop.double-column > div {
+        border-top: 1px solid black;
+        display: flex;
+        margin-top: 0; }
+        #schedule_a_income_floors .desktop.double-column > div > div {
+          border-bottom: none !important;
+          border-left: none !important;
+          border-right: 1px solid black;
+          border-top: none !important;
+          margin: 0;
+          padding-top: 1px;
+          width: 50%; }
+
+@media screen and (max-width: 860px) {
+  #schedule_a_income_floors .Rtable-cell .mobile {
+    display: block;
+    white-space: nowrap;
+    width: 12em; }
+  #schedule_a_income_floors .Rtable-cell.mobile {
+    display: block;
+    white-space: nowrap; }
+
+  #schedule_a_income_floors .Rtable > div:nth-last-child(2) span {
+    display: none; }
+  #schedule_a_income_floors .Rtable-cell--head > div[class="mobile"] {
+    text-align: center; }
+  #schedule_a_income_floors .Rtable--collapse > .Rtable-cell {
+    align-items: baseline;
+    text-align: left;
+    width: 100% !important; }
+    #schedule_a_income_floors .Rtable--collapse > .Rtable-cell span {
+      display: inline-block;
+      padding: 0 5px;
+      text-align: right;
+      width: 7em; }
+    #schedule_a_income_floors .Rtable--collapse > .Rtable-cell.double-column.mobile {
+      padding-bottom: 3px;
+      padding-top: 3px;
+      text-align: center; }
+    #schedule_a_income_floors .Rtable--collapse > .Rtable-cell.total {
+      font-weight: bold; }
+  #schedule_a_income_floors .Rtable--collapse > .Rtable-cell--head {
+    background-color: #f2f2f2;
+    font-weight: bold; }
+    #schedule_a_income_floors .Rtable--collapse > .Rtable-cell--head.total {
+      text-align: center; }
+  #schedule_a_income_floors .Rtable--collapse > .Rtable-cell--foot {
+    margin-bottom: 1em; } }
+
+/*# sourceMappingURL=cloudberry05.css.map */

@@ -1,0 +1,561 @@
+// debud
+
+
+// #comparables { 
+//     border: 3px solid red; 
+//     margin: 3px; 
+// }
+
+// #table_outer { 
+//     border: 3px solid orange; 
+//     margin: 3px; 
+//     > div{
+//         &.Rtable-cell {
+//             border: 3px solid magenta; 
+//             margin: 3px; 
+//         }
+//     }
+
+// }
+
+
+//=================================================
+//          IMPORTS
+//=================================================
+    // @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed');
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
+    // @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300');
+    @import url('https://fonts.googleapis.com/css?family=Work+Sans:700');
+
+//=================================================
+//           VARIABLES
+//=================================================
+
+    $nav-tab-radius: 5px;
+
+    $label-font: 'PT Sans Narrow', sans-serif;
+    $main-font: 'Trebuchet MS', Arial, Helvetica, Sans-Serif;
+
+    // $pdf-input-color: #ebf5fb;
+    // $pdf-input-color: #dee5ff;
+    $pdf-input-color: #e6ebff; // NE-3190
+    $nas-blue: #054877;
+    $nas-blue-hover: #0767ab;
+    $nas-light-blue: #e7f4fe;
+    $nas-red: #e11f26;
+    $comment-btn-width: 192px;
+
+    // $mobile-font-size: 16px;  // NE-3190. acc to best practices for mobile devices
+    // $mobile-line-height: 48px;  // NE-3190. acc to best practices for mobile devices
+
+    $mobile-font-size: 1em;  // NE-3190. acc to best practices for mobile devices
+    $mobile-line-height: 2em;  // NE-3190. acc to best practices for mobile devices
+    // $mobile-line-height: 1em; // temp.
+
+    .Rtable {
+        -ms-flex-wrap: wrap;
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    .Rtable-cell {
+        -ms-flex-positive: 1;
+        -webkit-box-flex: 1;
+        /*overflow: hidden;*/
+        box-sizing: border-box;
+        flex-grow: 1;
+        list-style: none;
+        padding: 1px;
+        width: 100%;
+        // border: solid 1px white;
+        //on ice
+        // background: rgba(112, 128, 144, 0.2);
+
+        margin: -3px 2px 3px -4px;
+        // on ice
+        // background-color: white;
+        // border-color: #e2e6e9;
+        border-color: black;
+        border-bottom: 1px solid black;
+
+        > h1, > h2, > h3, > h4, > h5, > h6 {
+            margin: 0;
+        } 
+    }
+
+
+    #comparables {
+                            
+        > .Rtable {
+
+            &.Rtable-outer-collapse {
+
+                border: solid 3px red;
+                padding: 1em;
+
+
+                // the two cells containing two tables each
+                > .Rtable-cell {
+                    // background-color: yellow;
+                    border-right: 1px solid blue;
+                    padding: 1em;
+
+                    border-bottom: 0;
+                }
+                
+            }
+        
+            // inner tables
+            .Rtable {
+                // every cell ...
+                .Rtable-cell {
+                    // background-color: yellow;
+
+                    border-left: 1px solid black;
+
+
+                    &.Rtable-cell--head {
+                        // color:#054877;
+                        text-align: center; 
+                        font-weight: bold;
+                        border-top: 1px solid black;
+                    }                    
+                }                               
+            }            
+        }
+
+
+        /* Table column sizing
+        ================================== */
+        .Rtable--2cols > .Rtable-cell { width: 50%;  }
+        .Rtable--3cols > .Rtable-cell { width: 33.33%; }
+        .Rtable--4cols > .Rtable-cell { width: 25%; }
+        .Rtable--5cols > .Rtable-cell { width: 20%; }
+        .Rtable--6cols > .Rtable-cell { width: 16.6%; }
+    }
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px) {
+        #comparables {
+            .Rtable {
+                // the cell with tables 1 and 2
+                > div:nth-child(1) {
+                    .Rtable {
+                        margin-bottom: 2em;
+                        .Rtable-cell {
+                            &.comparable1 {
+                                border-right: 1px solid black;
+                            }
+                        }
+                    }
+                }
+                // the cell with tables 3 and 4
+                > div:last-child {
+                    .Rtable {
+                        .Rtable-cell {
+                            &.comparable2 {
+                                border-left: 1px solid black;
+                            }
+                        }
+                    }
+                }
+
+                .Rtable {
+                    // when in mobile in 2-column layout, the "COMPARABLE 2" table becomes left-most
+                    // so it needs row names for itself and for "COMPARABLE 3"
+                    div[class*="comparable2"] { 
+                        /* Behave  like a "row" */
+                        // background-color: yellow;
+                        // border: none;
+                        // border-bottom: 1px solid #eee; 
+                        position: relative;
+                        .form-row, .labels-group, .labels-group-nowidth {
+                            padding-left: 10.5em; 
+                            // background-color: yellow;
+                        }
+
+                        //--------------------------------------------------
+                        &::before {
+                            
+                            font-family: $label-font;
+                            left: 6px; // mimic padding
+                            padding-right: 10px; 
+                            position: absolute; // Now like a table header
+                            text-transform: uppercase;
+                            top: 6px; // mimic padding
+                            white-space: nowrap;
+                            width: 10em; 
+                        }
+
+                        &[style="order: 1;"]:before  { content: "Property address"; }
+                        // #2 is empty
+                        &[style="order: 3;"]:before  { content: "City - Prov"; }
+                        &[style="order: 4;"]:before  { content: "postal code"; }
+                        &[style="order: 5;"]:before  { content: "approx. dist. from sub."; }
+                        &[style="order: 6;"]:before  { content: "date of sale"; }
+                        &[style="order: 7;"]:before  { content: "sale price"; }
+                        &[style="order: 8;"]:before  { content: "days on market"; }
+                        &[style="order: 9;"]:before  { content: "site size"; }
+                        &[style="order: 10;"]:before { content: "building type"; }
+                        &[style="order: 11;"]:before { content: "design/ style"; }
+                        &[style="order: 12;"]:before { content: "age/ condition"; }
+                        &[style="order: 13;"]:before { content: "gross living area"; }
+                        &[style="order: 14;"]:before { content: ""; }
+                        &[style="order: 15;"]:before { content: "room count"; }
+                        &[style="order: 16;"]:before { content: "bathroom count"; }
+                        &[style="order: 17;"]:before { content: "basement"; }
+                        &[style="order: 18;"]:before { content: "parking"; }
+                        &[style="order: 19;"]:before { content: "driveway"; }
+                        &[style="order: 20;"]:before { content: "extra 1"; }
+                        &[style="order: 21;"]:before { content: "extra 2"; }
+                        //--------------------------------------------------
+
+                    }                
+                }            
+            }
+
+            .Rtable-outer-collapse {
+                display: block;
+                > .Rtable-cell {
+                    width: 100% !important;
+                    
+                }
+                > .Rtable-cell--foot {
+                    margin-bottom: 1em;
+                }
+            }                
+        }
+
+}
+    
+@media screen and (max-width: 1136px) { 
+
+
+        //--------------------------------------------------
+        //      COMPARABLES
+        //--------------------------------------------------
+        #comparables {
+            // "Comment on reasonable exposure time"
+            > div:nth-child(6) {
+                // background-color: yellow;
+                > div:first-child {
+                    .input-binary {
+                        width: 10em;
+                    }
+                }
+            }
+        }
+
+
+        @media screen and (max-width: 950px) {
+
+            #c2-9 {
+            .form-row {
+                .input-text {
+                    min-width: 0;
+                    input {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+        }
+
+
+    }
+
+
+
+
+@media screen and (max-width: 768px) {
+
+
+ #comparables {
+
+        .Rtable {
+            > div:nth-child(1) {
+                .Rtable {
+                    margin-bottom: 0;
+                }
+            }
+            .Rtable {
+                // margin-bottom: 1em;
+
+                //--------------------------------------------------
+                // when in mobile in 2-column layout, the "COMPARABLE 2" table becomes left-most
+                // so it needs row names for itself and for "COMPARABLE 3"
+                // div = Rtable-cell
+                //--------------------------------------------------
+                div[class*="comparable1"], div[class*="comparable3"] { 
+                    // Behave  like a "row"
+                    // background-color: yellow;
+                    // border: none;
+                    // border-bottom: 1px solid #eee; 
+                    position: relative;
+                    .form-row, .labels-group, .labels-group-nowidth {
+                        padding-left: 10.5em;
+                        // margin-left: 10.5em;
+                        // background-color: yellow;
+                    }
+
+                    //=================================================
+                    &::before {
+                        /* Now like a table header */
+                        position: absolute;
+                        /* Top/left values mimic padding */
+                        top: 3px;
+                        left: 6px;
+                        width: 10em; 
+                        padding-right: 10px; 
+                        white-space: nowrap;
+                        // color: red;
+                        // background-color: yellow;
+                        font-family: $label-font;
+                        text-transform: uppercase;
+                        // content: "Hello!";
+                    }
+
+                    &[style="order: 1;"]:before  { content: "Property address"; }
+                    // #2 is empty
+                    &[style="order: 3;"]:before  { content: "City - Prov"; }
+                    &[style="order: 4;"]:before  { content: "postal code"; }
+                    &[style="order: 5;"]:before  { content: "approx. dist. from sub."; }
+                    &[style="order: 6;"]:before  { content: "date of sale"; }
+                    &[style="order: 7;"]:before  { content: "sale price"; }
+                    &[style="order: 8;"]:before  { content: "days on market"; }
+                    &[style="order: 9;"]:before  { content: "site size"; }
+                    &[style="order: 10;"]:before { content: "building type"; }
+                    &[style="order: 11;"]:before { content: "design/ style"; }
+                    &[style="order: 12;"]:before { content: "age/ condition"; }
+                    &[style="order: 13;"]:before { content: "gross living area"; }
+                    &[style="order: 14;"]:before { content: ""; }
+                    &[style="order: 15;"]:before { content: "room count"; }
+                    &[style="order: 16;"]:before { content: "bathroom count"; }
+                    &[style="order: 17;"]:before { content: "basement"; }
+                    &[style="order: 18;"]:before { content: "parking"; }
+                    &[style="order: 19;"]:before { content: "driveway"; }
+                    &[style="order: 20;"]:before { content: "extra 1"; }
+                    &[style="order: 21;"]:before { content: "extra 2"; }
+                    //================================================ 
+
+
+                        
+                }
+
+                .Rtable-cell--head:not(.subject) {
+                    // put on ice for now
+                    // border-top: 1px solid black;
+                }
+                
+
+                div[class~="subject"], div[class~="comparable2"] {
+                    // background-color: yellow;
+                    // border-left: 1px solid black;
+                }
+                // border-left: 1px solid black;
+                // border-right: 1px solid black;
+
+
+                .Rtable-cell {
+                    &.subject, &.comparable2 {
+                        // background-color: yellow;
+                        border-left: 1px solid black !important;
+                    }
+                    // &[class*="comparable2"] {
+                    //     background-color: yellow;
+                    //     border-left: 1px solid black;
+                    // }
+                    // border-left: 1px solid black;
+                    border-right: 1px solid black;
+
+                    &:not(.subject) {
+                    // > div:not(.subject) {
+                        .form-row, .labels-group  {
+                            
+                            // margin-left: 11em;
+                        }
+                        &.Rtable-cell--head {
+                            // background-color: yellow;
+                            margin-top: 1em;
+                        }
+                        
+                    }
+                }
+                // Hide the empty row 3 in "Subject" table
+                > div:nth-child(3) {
+                    &.subject {
+                        display: none;
+                    }
+                }
+                > div:nth-child(15):not(.subject), > div:nth-child(37) {
+                    // background-color: yellow;
+                    // > div:nth-child(1) {
+                    //     // background-color: yellow;
+                    //     display: inline-block;
+                    // }
+
+                }
+            }
+        }
+
+        // march 8 start
+        .Rtable--collapse {
+            display: block;
+            > .Rtable-cell {
+                width: 100% !important;
+                
+            }
+            > .Rtable-cell--foot {
+                margin-bottom: 1em;
+            }
+        }
+
+
+        // LABELS start
+
+        // div[style^="order"]:not(.subject) { 
+        //     /* Behave  like a "row" */
+        //     // background-color: yellow;
+        //     border: none;
+        //     border-bottom: 1px solid #eee; 
+        //     position: relative;
+        //     .form-row {
+        //         // padding-left: 11em; 
+        //         // background-color: yellow;
+        //     }
+            
+        // }
+        // div:before {
+        //     /* Now like a table header */
+        //     position: absolute;
+        //     /* Top/left values mimic padding */
+        //     top: 6px;
+        //     left: 6px;
+        //     width: 10em; 
+        //     padding-right: 10px; 
+        //     white-space: nowrap;
+        //     // color: red;
+        //     // background-color: white;
+        //     font-family: $label-font;
+        //     text-transform: uppercase;
+        // }
+        
+        // // When on mobile, show the row names for all tables except the Subject table
+        // // because it uses its own column
+        // div[style="order: 1;"]:not(.subject):before { content: "Property address"; }
+        // // #2 is empty
+        // div[style="order: 3;"]:not(.subject):before { content: "City - Prov"; }
+        // div[style="order: 4;"]:not(.subject):before { content: "postal code"; }
+        // div[style="order: 5;"]:not(.subject):before { content: "approx. dist. from sub."; }
+        // div[style="order: 6;"]:not(.subject):before { content: "date of sale"; }
+        // div[style="order: 7;"]:not(.subject):before { content: "sale price"; }
+        // div[style="order: 8;"]:not(.subject):before { content: "days on market"; }
+        // div[style="order: 9;"]:not(.subject):before { content: "site size"; }
+        // div[style="order: 10;"]:not(.subject):before { content: "building type"; }
+        // div[style="order: 11;"]:not(.subject):before { content: "design/style"; }
+        // div[style="order: 12;"]:not(.subject):before { content: "age/condition"; }
+        // div[style="order: 13;"]:not(.subject):before { content: "gross living area"; }
+        // div[style="order: 14;"]:not(.subject):before { content: ""; }
+        // div[style="order: 15;"]:not(.subject):before { content: "room count"; }
+        // div[style="order: 16;"]:not(.subject):before { content: "bathroom count"; }
+        // div[style="order: 17;"]:not(.subject):before { content: "basement"; }
+        // div[style="order: 18;"]:not(.subject):before { content: "parking"; }
+        // div[style="order: 19;"]:not(.subject):before { content: "driveway"; }
+        // div[style="order: 20;"]:not(.subject):before { content: "extra 1"; }
+        // div[style="order: 21;"]:not(.subject):before { content: "extra 2"; }
+        // // march 8 end
+
+        // LABELS end
+        
+        
+
+
+
+    }
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+
+        #comparables {
+            // "has the subject property been sold..."
+            > div:nth-child(3) {
+                flex-wrap: wrap;
+                // background-color: lightblue;
+                label {
+                    white-space: normal;
+                }
+            }
+        }
+
+}
+
+
+
+@media screen and (max-width: 480px) {
+
+
+    //--------------------------------------------------
+    //      COMPARABLES
+    //--------------------------------------------------
+        #comparables {
+            // div:before {
+
+            //     width: 7em; 
+            //     font-size: 10px;
+            //     white-space: normal;
+            // }
+
+            .Rtable {
+                .Rtable {
+                    div[class*="comparable"]:before {
+                        // background-color: yellow;
+                        width: 6em; 
+                        font-size: 11px;
+                        padding-left: 0;
+                        white-space: normal;
+                        
+                    }
+                    .Rtable-cell{
+                        &.subject {
+                            // labels for every row
+                            > div:first-child {
+                                width: 5em;
+                                label {
+                                    font-size: 11px;
+                                    padding-top: 0.1em;
+                                    white-space: normal;
+                                }
+                            }
+                        }
+                        &:not(.subject) {
+                            .form-row, .labels-group, .labels-group-nowidth {
+                                // margin-left: 6em;
+                                padding-left: 5em;
+                            }
+
+                        }
+                        .form-row, .labels-group {
+                            // margin-left: 6em;
+                            // padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    
+
+
+
+}
