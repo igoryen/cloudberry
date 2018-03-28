@@ -1,0 +1,314 @@
+//=========================================
+//      USAGE
+//=========================================    
+
+
+//=========================================
+//      IMPORTS
+//=========================================
+    @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700,900');
+
+//=========================================
+//      VARIABLES
+//=========================================
+
+    $nav-tab-radius: 5px;
+    $label-font: 'PT Sans Narrow',  sans-serif;
+    $main-font: 'Trebuchet MS', Arial, Helvetica, Sans-Serif;
+    // $pdf-input-color: #ebf5fb;
+    // $pdf-input-color: #dee5ff;
+    $pdf-input-color: #e6ebff; // NE-3190
+    $nas-blue: #054877;
+    $nas-blue-hover: #0767ab;
+    $nas-light-blue: #e7f4fe;
+    $nas-red: #e11f26;
+    $comment-btn-width: 192px;
+    // $mobile-font-size: 16px;  // NE-3190. acc to best practices for mobile devices
+    // $mobile-line-height: 48px;  // NE-3190. acc to best practices for mobile devices
+    $mobile-font-size: 1em; // NE-3190. acc to best practices for mobile devices
+    $mobile-line-height: 2em; // NE-3190. acc to best practices for mobile devices
+    // $mobile-line-height: 1em; // temp.
+    $column_one5th: 20%;
+    $column_one6th: 16.666666666666666666%;
+    $column_one9th: 11.1111111111%;
+
+
+
+//=========================================
+//      MIXINS
+//=========================================
+
+
+
+
+//=========================================
+//      GLOBAL STYLES
+//=========================================
+
+    *, *:before, *:after { box-sizing: border-box; }
+
+    body {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .mdl_Rtable {
+        display: flex;
+        flex-wrap: wrap;
+        font-family: $label-font;
+        margin: 0;
+        padding: 0;
+    }
+
+    .mdl_Rtable-cell--head {
+        text-transform: uppercase;
+    }
+
+    .mdl_Rtable-cell {
+        align-items: center;
+        border: solid 1px #ccc;
+        box-sizing: border-box;
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        list-style: none;
+        margin: 0px -1px -1px 0px;
+        overflow: hidden; // Or flex might break
+        padding: .3rem;
+        // text-transform: uppercase;
+        width: 100%;
+        label {
+            margin-left: 5px;
+            margin-right: 5px;
+            &.mobile {
+                // background-color: yellow;
+                display: none;
+            }
+        }
+        input[type="text"] {
+            margin-bottom: 2px;
+            padding: 0 2px;
+            width: 100%;
+        }
+        &.desktop {
+            // background-color: pink;
+            color: #069;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            min-width: 8rem;
+        }
+        &.mobile {
+            // background-color: yellow;
+            // background-color: #f2f2f2;
+            // color: green;
+        }
+        &.percentage {
+            input[type="number"] {
+                width: 4em;
+            }
+        }
+        // &.no-top-border {
+        //     border-top: 0;
+        // }
+    }
+
+    .mdl_Rtable--2cols>.mdl_Rtable-cell {
+        width: 50%;
+    }
+
+    .mdl_Rtable--3cols>.mdl_Rtable-cell {
+        width: 33.33%;
+    }
+
+    .mdl_Rtable--4cols>.mdl_Rtable-cell {
+        width: 25%;
+    }
+
+    .mdl_Rtable--5cols {
+        >.mdl_Rtable-cell {
+            width: 20%;
+            &.colspan2 {
+                width: $column_one5th * 2;
+            }
+            &.colspan4 {
+                width: $column_one5th * 4;
+            }
+        }
+    }
+
+    .mdl_Rtable--6cols {
+        >.mdl_Rtable-cell {
+            width: 16.666666666666666666%;
+            &.colspan5 {
+                width: $column_one6th * 5;
+            }
+        }
+    }
+
+    .mdl_Rtable--9cols {
+        >.mdl_Rtable-cell {
+            width: $column_one9th;
+            &.colspan2 {
+                width: 2 * $column_one9th;
+            }
+            &.colspan3 {
+                width: 3 * $column_one9th;
+            }
+            &.colspan4 {
+                width: 4 * $column_one9th;
+            }
+            &.colspan5 {
+                width: 5 * $column_one9th;
+            }
+            &.colspan8 {
+                width: 8 * $column_one9th;
+            }
+            &.one-of-3 {
+                width: (5 * $column_one9th) / 3;
+            }
+        }
+    } // 9
+    #walter {
+
+        margin-top: 10rem;
+
+        display: flex;
+        justify-content: center;
+        .mdl_Rtable {
+            position: relative;
+        }
+        .mdl_Rtable-cell--head {
+            background-color: white;
+            border-color: black;
+            color: black;
+            font-family: $main-font;
+            padding-right: 5px;
+        }
+        .mdl_Rtable-cell {
+            // padding-right: 5px;
+            text-align: center;
+            input {
+                font-family: monospace;
+                margin-bottom: 2px;
+                width: 100%;
+            }
+            
+            .mobile {
+                // border: 1px solid red;
+                display: none;
+            }
+            &.mobile {
+                // border: 1px solid red;
+                display: none;
+            }
+        }
+        
+    }
+
+
+
+//=========================================
+//      SECTION A
+//=========================================
+
+//=========================================
+//      SECTION B
+//=========================================
+    
+
+//=========================================
+//      MEDIA QUERIES
+//=========================================
+
+@media screen and (max-width: 860px) {
+
+
+
+    #walter {
+
+
+        .mdl_Rtable-cell {
+            &:not(desktop) {
+                // background-color: yellow;
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            &.desktop {
+                display: none;
+            }
+            .mobile {
+                display: block;
+                white-space: nowrap;
+                width: 10rem;
+                padding-left: 1rem;
+                border-right: 1px solid #ccc;
+                color: #069;
+                font-weight: 700;
+            }
+            &.mobile {
+                // display: block;
+                white-space: nowrap;
+
+                display: flex;
+                justify-content: flex-start;
+                
+                // width: 12em;
+            }
+            &.last {
+                border-bottom: 2px solid #069;;
+                margin-bottom: 0px;
+            }
+        }
+
+
+        .mdl_Rtable-cell--head {
+            >div[class="mobile"] {
+                text-align: center;
+            }
+        }
+        .mdl_Rtable--collapse {
+            // display: block;
+            // width: 60%;
+            >.mdl_Rtable-cell {
+                align-items: baseline;
+                text-align: left;
+                width: 100% !important;
+                padding: 0;
+                line-height: 1.5rem;
+
+
+                span {
+                    // border-right: 1px black solid;
+                    display: inline-block;
+                    padding: 0 5px;
+                    text-align: left;
+                    width: auto;
+                }
+                &.double-column.mobile {
+                    padding-bottom: 3px;
+                    padding-top: 3px;
+                    text-align: center;
+                }
+                &.total {
+                    font-weight: bold;
+                    // &.mobile {
+                    //     display: inherit;
+                    // }
+                }
+            }
+            >.mdl_Rtable-cell--head {
+                background-color: #f2f2f2;
+                font-weight: bold;
+                &.total {
+                    text-align: center;
+                }
+            }
+            >.mdl_Rtable-cell--foot {
+                margin-bottom: 1em;
+            }
+        }
+       
+    }
+}
